@@ -254,6 +254,9 @@ def orm_scanner(image, answer_key, bubble_options):
 
                 show_questions(paper, question_cnts, BUBBLE_OPTIONS)
 
+                if len(question_cnts) != QUESTIONS_ITEMS * BUBBLE_OPTIONS:
+                    return None, None, "The number of bubble contours are incorrect. Make sure the image is clear."
+
                 # Modify this for the answer key
                 correct, wrong = grade_exam(question_cnts, thresh, paper, ANSWER_KEY, BUBBLE_OPTIONS)
 
