@@ -1,0 +1,4 @@
+Django==4.2.5
+imutils==0.5.4
+numpy==1.26.2
+opencv_python==4.8.1.78

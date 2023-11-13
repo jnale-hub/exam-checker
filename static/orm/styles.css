@@ -1,0 +1,32 @@
+textarea {
+    min-height: 250px;
+    margin-bottom: 5px;
+}
+
+.email-div {
+    display: flex;
+    border-bottom: 1px solid #ced4da;
+    cursor: pointer;
+    padding: 10px 15px 8px 15px;
+    border-radius: 0.25rem;
+}
+.read {
+    background: rgba(217, 221, 221, 0.3);
+}
+
+.unread { 
+    background: white;
+}
+
+#sender{
+    min-width: 30%;
+}
+
+#subject {
+    margin-left: 5px;
+}
+
+#timestamp {
+    margin-left: auto;
+    color: gray;
+}

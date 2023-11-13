@@ -1,0 +1,44 @@
+{% extends "orm/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<div class="container">
+    <h2 class="mt-4 mb-3">Result</h2>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Name:</h5>
+                    <p class="card-text">{{ name }}</p>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Exam Code:</h5>
+                    <p class="card-text">{{ code }}</p>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Result:</h5>
+                    <p class="card-text">Percent: {{ result.score_percent }}%</p>
+                    <p class="card-text">Items: {{ result.total_items }}</p>
+                    <p class="card-text">Correct: {{ result.correct_answers }}</p>
+                    <p class="card-text">Wrong: {{ result.wrong_answers }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card mb-3" id="card-img">
+                <img src="{% static 'outputs/' %}{{ result.img }}" alt="result" class="card-img-top">
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

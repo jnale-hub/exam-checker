@@ -1,0 +1,56 @@
+{% extends "orm/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<div class="container d-flex justify-content-center align-items-center min-vh-100 p-2">
+    <div class="border border-2 border-dashed p-4 rounded-3" id="form">
+        <h2 class="text-center mb-4 max-w-100 mx-auto">Upload the image of your sheet and the exam code</h2>
+        <form method="post" enctype="multipart/form-data" class="">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            <div class="mb-3">
+                {{ form.name.label_tag }}
+                {{ form.name }}
+                {{ form.name.errors }}
+            </div>
+            <div class="mb-3">
+                {{ form.code.label_tag }}
+                {{ form.code }}
+                {{ form.code.errors }}
+            </div>
+            <div class="mb-3">
+                {{ form.image.label_tag }}
+                {{ form.image }}
+                {{ form.image.errors }}
+                <img id="image-preview" src="" alt="Image Preview" class="mt-2 rounded" style="max-width: 100%; display: none;">
+            </div>
+            <button type="submit" class="btn btn-primary">Upload Image</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // JavaScript to display image preview
+    document.getElementById("id_image").addEventListener("change", function () {
+        const input = this;
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                const imagePreview = document.getElementById("image-preview");
+                imagePreview.src = e.target.result;
+                imagePreview.style.display = "block";
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        } else {
+            const imagePreview = document.getElementById("image-preview");
+            imagePreview.src = "";
+            imagePreview.style.display = "none";
+        }
+    });
+</script>
+
+
+{% endblock %}
